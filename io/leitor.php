@@ -11,8 +11,11 @@ if(isset($_POST['ArquivoEntrada']))
 
 //var_dump($vetCandidatos);
 
-if(isset($vetCandidatos))
-NumeroDeVagas($vetCandidatos);
+if(isset($vetCandidatos)){
+    NumeroDeVagas($vetCandidatos);
+    TotalVotosNominais($vetCandidatos);
+
+}
 
 
 function LerCSV($nome){
@@ -29,7 +32,7 @@ function LerCSV($nome){
                 $vetCandidatos[$i] = new Candidato($linha[1],$linha[2],new Partido($split[0],$split[1]),$auxEleito,$linha[4]);
             else
                 $vetCandidatos[$i] = new Candidato($linha[1],$linha[2],new Partido($split[0],"nenhuma"),$auxEleito,$linha[4]);
-            //$vetCandidatos[$i]->printCandidato();
+            $vetCandidatos[$i]->printCandidato();
             $i++;        
         }
     }
@@ -45,7 +48,15 @@ function NumeroDeVagas($vetCandidatos){
         if($candidato->getEleito())
             $count++;
     }
-    echo "Numero de Vagas: " . $count;
+    echo "Numero de Vagas: " . $count . "<br>";
+}
+
+function TotalVotosNominais($vetCandidatos){
+    $count = 0;
+    foreach($vetCandidatos as $candidato){
+        $count += $candidato->votos;
+    }
+    echo "Quantidade de votos nominais: " . $count . "<br>";
 }
 
 ?>
