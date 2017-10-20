@@ -1,7 +1,7 @@
 <?php
-    include 'c:\xampp\htdocs\LP\domain\candidato.php';
-    include 'c:\xampp\htdocs\LP\domain\partido.php';
-    include 'c:\xampp\htdocs\LP\io\leitor.php';
+    include(__DIR__.'\domain\partido.php');
+    include(__DIR__.'\domain\candidato.php');
+    include(__DIR__.'\io\leitor.php');
 ?>
 
 <!DOCTYPE html>
