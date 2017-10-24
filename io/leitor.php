@@ -15,7 +15,9 @@ if(isset($vetCandidatos)){
     NumeroDeVagas($vetCandidatos);
     echo "<br>";
     TotalVotosNominais($vetCandidatos);
-
+    VereadoresEleitos($vetCandidatos);
+    echo "<br>";
+    CandidatosMaisVotados($vetCandidatos);
 }
 
 
@@ -36,6 +38,8 @@ function LerCSV($nome){
             //$vetCandidatos[$i]->printCandidato();
             $i++;        
         }
+        //ordena
+        usort($vetCandidatos,array("Candidato","sortByVotos"));
     }
     else
         echo "Arquivo de Entrada nao encontrado";
@@ -58,6 +62,24 @@ function TotalVotosNominais($vetCandidatos){
         $count += $candidato->votos;
     }
     echo "Quantidade de votos nominais: " . $count . "<br>";
+}
+
+function VereadoresEleitos($vetCandidatos){
+    echo "<br> Vereadores Eleitos: <br>";
+    $i = 1;
+    foreach($vetCandidatos as $candidato){
+        //if($candidato->getEleito()){
+            echo $i . " - ";
+            $candidato->printCandidato();
+            $i++;
+        //}
+    }
+}
+
+function CandidatosMaisVotados($vetCandidatos){
+    echo "Candidatos mais votados: <br>";
+    foreach($vetCandidatos as $candidato)
+        $candidato->printCandidato();
 }
 
 ?>

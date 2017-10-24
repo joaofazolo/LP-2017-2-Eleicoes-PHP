@@ -16,12 +16,16 @@
             }
 
             public function printCandidato(){
-                echo $this->numero . " " . $this->nome ." ". $this->partido->sigla . 
-                " " . $this->partido->coligacao . " " . $this->eleito . " " . $this->votos ."<br/>";
+                echo $this->nome ." (". $this->partido->sigla . 
+                ", " . $this->votos . ") - Coligação:" . $this->partido->coligacao ."<br/>";
             }
             
             public function getEleito(){
                 return $this->eleito;
+            }
+
+            public function sortByVotos($first,$second){
+                return strcmp($second->votos,$first->votos);
             }
         }
     
