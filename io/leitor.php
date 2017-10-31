@@ -68,18 +68,24 @@ function VereadoresEleitos($vetCandidatos){
     echo "<br> Vereadores Eleitos: <br>";
     $i = 1;
     foreach($vetCandidatos as $candidato){
-        //if($candidato->getEleito()){
+        if($candidato->getEleito()){
             echo $i . " - ";
             $candidato->printCandidato();
             $i++;
-        //}
+        }
     }
 }
 
 function CandidatosMaisVotados($vetCandidatos){
     echo "Candidatos mais votados: <br>";
-    foreach($vetCandidatos as $candidato)
+    $i = 1;
+    foreach($vetCandidatos as $candidato){
+        if($i>15)
+            return;
+        echo $i . " - ";
         $candidato->printCandidato();
+        $i++;
+    }
 }
 
 ?>

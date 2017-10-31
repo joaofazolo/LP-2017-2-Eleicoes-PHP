@@ -16,8 +16,11 @@
             }
 
             public function printCandidato(){
+                if(strcmp($this->partido->coligacao,"nenhuma")==0)
+                    echo $this->nome ." (". $this->partido->sigla . ", " . $this->votos . " votos)<br>";
+                else
                 echo $this->nome ." (". $this->partido->sigla . 
-                ", " . $this->votos . ") - Coligação:" . $this->partido->coligacao ."<br/>";
+                ", " . $this->votos . " votos) - Coligação:" . $this->partido->coligacao ."<br>";
             }
             
             public function getEleito(){
@@ -25,7 +28,7 @@
             }
 
             public function sortByVotos($first,$second){
-                return strcmp($second->votos,$first->votos);
+                return $second->votos > $first->votos;
             }
         }
     
