@@ -5,6 +5,8 @@ include_once(dirname(__DIR__).'\domain\partido.php');
 
 $vetCandidatos;
 
+$vagas;
+
 if(isset($_POST['ArquivoEntrada']))
 @LerCSV("../".$_POST['ArquivoEntrada']);
 //echo htmlspecialchars($_POST['ArquivoEntrada']);
@@ -74,13 +76,14 @@ function VereadoresEleitos($vetCandidatos){
             $i++;
         }
     }
+    $GLOBALS['vagas'] = $i;
 }
 
 function CandidatosMaisVotados($vetCandidatos){
     echo "Candidatos mais votados: <br>";
     $i = 1;
     foreach($vetCandidatos as $candidato){
-        if($i>15)
+        if($i>$GLOBALS['vagas']-1)
             return;
         echo $i . " - ";
         $candidato->printCandidato();
