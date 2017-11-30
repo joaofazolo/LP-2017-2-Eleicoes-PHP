@@ -2,8 +2,6 @@
     include_once(__DIR__.'/domain/partido.php');
     include_once(__DIR__.'/domain/candidato.php');
     include_once(__DIR__.'/io/leitor.php');
-    include_once(__DIR__.'/io/relatorio.php');
-
 ?>
 
 <!DOCTYPE html>
