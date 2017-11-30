@@ -1,7 +1,6 @@
 <?php
     include_once(__DIR__.'/domain/partido.php');
     include_once(__DIR__.'/domain/candidato.php');
-    include_once(__DIR__.'/io/leitor.php');
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +13,7 @@
 </head>
 <body>
     <div>
-        <form action="./io/leitor.php" method="post">
+        <form action="./io/system.php" method="post">
             <p> Arquivo de Entrada: </p>
             <p> <input type="text" name="ArquivoEntrada"> </p>
             <p> <input type="submit"> </p>
