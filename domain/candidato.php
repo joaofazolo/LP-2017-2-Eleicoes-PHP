@@ -1,13 +1,18 @@
 <?php
 //Classe candidato
 class Candidato{
+    //Numero do candidato
     private $numero;
-    private $nome;
+    //Nome do cadidato
+    private $nome; 
+    //Partido do candidato
     private $partido;
+    //Se o candidato foi eleito ou nao
     private $eleito;
+    //Quantidade de votos do candidato
     public $votos;
     
-    //Construtor classe candidato
+    //Construtor de candidato
     public function __construct($numero,$nome,$partido,$eleito,$votos){
         $this->numero = $numero;
         $this->nome = $nome;
@@ -27,6 +32,7 @@ class Candidato{
         ", " . $this->votos . " votos) - Coligação:" . $this->partido->coligacao ."<br>";
     }
     
+    //Retorna atributo eleito
     public function getEleito(){
         return $this->eleito;
     }

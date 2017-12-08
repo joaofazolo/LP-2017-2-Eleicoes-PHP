@@ -8,11 +8,11 @@ $vetCandidatos;
 //Quantidade de vagas
 $vagas;
 
-//Se variavel ArquivoEntrada esta setada le csv
+//Verifica se a variavel ArquivoEntrada e le csv
 if(isset($_POST['ArquivoEntrada']))
 LerCSV("../".$_POST['ArquivoEntrada']);
 
-//Chama funcoes para gerar relatorios
+//Chama metodos para gerar relatorios
 if(isset($vetCandidatos)){
     NumeroDeVagas($vetCandidatos);
     echo "<br>";
@@ -40,7 +40,7 @@ function LerCSV($nome){
             //Vetor split recebe partido e coligacao
             $split = explode("-",$linha[3]);
 
-            //Variavel auxEleito e inicializada como false
+            //Variavel auxEleito eh inicializada como false
             $auxEleito = false;
 
             //Se primeiro character da linha for "*", auxEleito recebe true
@@ -51,7 +51,7 @@ function LerCSV($nome){
             if(sizeof($split)==2)
             //Cria um candidato com coligacao
             $vetCandidatos[$i] = new Candidato($linha[1],$linha[2],new Partido($split[0],$split[1]),$auxEleito,str_replace('.',"",$linha[4]));
-            //Caso nao tenha coligacao, partido recebe "nenhuma"
+            //Caso nao tenha coligacao, coligacao recebe "nenhuma"
             else
             $vetCandidatos[$i] = new Candidato($linha[1],$linha[2],new Partido($split[0],"nenhuma"),$auxEleito,str_replace('.',"",$linha[4]));
             
